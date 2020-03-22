@@ -9,10 +9,37 @@ namespace GradeBook
             grades = new List<double>();
             Name = name;
         }
+
+        public void AddLetterGrade(char letter)
+        {
+            switch(letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;
+
+                case 'B':
+                    AddGrade(80);
+                    break;
+
+                case 'C':
+                    AddGrade(70);
+                    break;
+
+                default:
+                    AddGrade(0);
+                    break;
+            }
+        }
+
         public void AddGrade(double grade)
         {
             if(grade >= 0 && grade <=100){
                 grades.Add(grade);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid grade");
             }
         }
 
@@ -31,6 +58,29 @@ namespace GradeBook
             }
             result.Avarage /= grades.Count;
 
+            switch(result.Avarage)
+            {
+                case var d when d >= 90.0:
+                    result.Letter = 'A';
+                    break;
+
+                case var d when d >= 80.0:
+                    result.Letter = 'B';
+                    break;
+
+                case var d when d >= 70.0:
+                    result.Letter = 'C';
+                    break;
+
+                case var d when d >= 60.0:
+                    result.Letter = 'D';
+                    break;
+
+                default:
+                    result.Letter = 'F';
+                    break;
+            }
+
             return result;
         }
 
@@ -41,6 +91,7 @@ namespace GradeBook
             Console.WriteLine($"The lowest grade is {result.Low}");
             Console.WriteLine($"The highest grade is {result.High}");
             Console.WriteLine($"The avarage grade is {result.Avarage}");
+            Console.WriteLine($"The letter grade is {result.Letter}");
         }
 
         public string Name;
