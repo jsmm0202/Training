@@ -8,9 +8,7 @@ namespace GradeBook
         static void Main(string[] args)
         { 
             Book book = new Book("Jessi's Grade Book");
-            // book.AddGrade(89.1);
-            // book.AddGrade(90.5);
-            // book.AddGrade(77.5);
+            book.GradeAdded += OnGradeAdded;
 
             var input = "";
             var grade = 0.0;
@@ -27,12 +25,16 @@ namespace GradeBook
                 }
                 catch(Exception ex)
                 {
-                    System.Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
 
             }
             
             book.ShowStatistics();
+        }
+
+        static void OnGradeAdded(object sender, EventArgs args){
+            Console.WriteLine("A grade was added");
         }
     }
 }
