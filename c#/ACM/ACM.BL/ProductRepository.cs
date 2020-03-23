@@ -22,7 +22,27 @@ namespace ACM.BL
 
         public bool save(Product product)
         {
-            return true;
+            var success = true;
+
+            if(product.HasChanges)
+            {
+                if(product.IsValid)
+                {
+                    if(product.IsNew)
+                    {
+                        //Call an insert procedure
+                    }
+                    else
+                    {
+                        //Call an update procedure
+                    }
+                }
+                else 
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }

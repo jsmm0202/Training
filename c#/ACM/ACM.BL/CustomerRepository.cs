@@ -30,7 +30,27 @@ namespace ACM.BL
 
         public bool save(Customer customer)
         {
-            return true;
+            var success = true;
+
+            if (customer.HasChanges)
+            {
+                if (customer.IsValid)
+                {
+                    if (customer.IsNew)
+                    {
+                        //Call an insert procedure
+                    }
+                    else
+                    {
+                        //Call an update procedure
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
     }
 }
