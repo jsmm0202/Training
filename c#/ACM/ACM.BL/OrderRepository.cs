@@ -19,7 +19,7 @@ namespace ACM.BL
             return order;
         }
 
-        public bool save()
+        public bool save(Order order)
         {
             return true;
         }

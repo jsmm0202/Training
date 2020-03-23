@@ -20,7 +20,7 @@ namespace ACM.BL
             return product;
         }
 
-        public bool save()
+        public bool save(Product product)
         {
             return true;
         }
