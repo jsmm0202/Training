@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ACM.BL
 {
-    class Order
+    public class Order
     {
         public Order()
         {
@@ -28,16 +28,6 @@ namespace ACM.BL
             }
 
             return isValid;
-        }
-
-        public Order Retrieve(int productId)
-        {
-            return new Order();
-        }
-
-        public bool save()
-        {
-            return true;
         }
     }
 }
