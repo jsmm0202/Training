@@ -16,7 +16,7 @@ namespace ACM.BLTest
                 ProductName = "Sunflowers",
                 ProductDescription = "blabla",
                 CurrentPrice = 15.96M
-        };
+            };
 
             var actual = productRepository.Retrieve(2);
 
