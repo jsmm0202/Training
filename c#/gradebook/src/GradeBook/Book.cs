@@ -1,20 +1,59 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-    public class Book
-    { 
-        public Book(string name){
-            grades = new List<double>();
+    public class NamedObject
+    {
+        public NamedObject(string name)
+        {
             Name = name;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
+
+    public interface IBook
+    {
+        void AddGrade(double grade);
+        Statistics GetStatistics();
+        void ShowStatistics();
+        string Name { get; }
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    public abstract class Book : NamedObject, IBook
+    {
+        public Book(string name) : base(name)
+        {
+        }
+
+        public abstract event GradeAddedDelegate GradeAdded;
+
+        public abstract void AddGrade(double grade);
+
+        public abstract Statistics GetStatistics();
+
+        public abstract void ShowStatistics();
+    }
+
+    public class InMemoryBook : Book
+    {
+        public InMemoryBook(string name) : base(name)
+        {
+            grades = new List<double>();
         }
 
         public void AddGrade(char letter)
         {
-            switch(letter)
+            switch (letter)
             {
                 case 'A':
                     AddGrade(90);
@@ -34,11 +73,12 @@ namespace GradeBook
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade)
         {
-            if(grade >= 0 && grade <=100){
+            if (grade >= 0 && grade <= 100)
+            {
                 grades.Add(grade);
-                if(GradeAdded != null)
+                if (GradeAdded != null)
                 {
                     GradeAdded(this, new EventArgs());
                 }
@@ -49,48 +89,19 @@ namespace GradeBook
             }
         }
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics()
         {
             var result = new Statistics();
-            result.Avarage = 0.0;
-            result.High = double.MinValue;
-            result.Low = double.MaxValue;
 
             foreach (var grade in grades)
             {
-                result.High = Math.Max(result.High,grade);
-                result.Low = Math.Min(result.Low, grade);
-                result.Avarage += grade;
-            }
-            result.Avarage /= grades.Count;
-
-            switch(result.Avarage)
-            {
-                case var d when d >= 90.0:
-                    result.Letter = 'A';
-                    break;
-
-                case var d when d >= 80.0:
-                    result.Letter = 'B';
-                    break;
-
-                case var d when d >= 70.0:
-                    result.Letter = 'C';
-                    break;
-
-                case var d when d >= 60.0:
-                    result.Letter = 'D';
-                    break;
-
-                default:
-                    result.Letter = 'F';
-                    break;
+                result.Add(grade);
             }
 
             return result;
         }
 
-        public void ShowStatistics()
+        public override void ShowStatistics()
         {
             Statistics result = GetStatistics();
 
@@ -101,14 +112,55 @@ namespace GradeBook
             Console.WriteLine($"The letter grade is {result.Letter}");
         }
 
-        public event GradeAddedDelegate GradeAdded;
-
-        public string Name{
-            get;
-            set;
-        }
+        public override event GradeAddedDelegate GradeAdded;
 
         public const string CATEGORY = "Science";
         private List<double> grades;
+    }
+
+    public class DiskBook : Book
+    {
+        public DiskBook(string name) : base(name)
+        {
+        }
+
+        public override void AddGrade(double grade)
+        {
+            using (var writer = File.AppendText($"{Name}.txt"))
+            {
+                writer.WriteLine(grade);
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+            }
+        }
+
+        public override Statistics GetStatistics()
+        {
+            var result = new Statistics();
+            using (var reader = File.OpenText($"{Name}.txt"))
+            {
+                string s = "";
+                while ((s = reader.ReadLine()) != null)
+                {
+                    result.Add(double.Parse(s));
+                }
+            }
+            return result;
+        }
+
+        public override void ShowStatistics()
+        {
+            Statistics result = GetStatistics();
+
+            Console.WriteLine($"For the book named {Name}");
+            Console.WriteLine($"The lowest grade is {result.Low}");
+            Console.WriteLine($"The highest grade is {result.High}");
+            Console.WriteLine($"The avarage grade is {result.Avarage}");
+            Console.WriteLine($"The letter grade is {result.Letter}");
+        }
+
+        public override event GradeAddedDelegate GradeAdded;
     }
 }

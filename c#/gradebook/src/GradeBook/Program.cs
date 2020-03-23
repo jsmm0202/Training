@@ -2,35 +2,39 @@
 using System.Collections.Generic;
 
 namespace GradeBook
-{
-    class Program
+{    class Program
     {
         static void Main(string[] args)
-        { 
-            Book book = new Book("Jessi's Grade Book");
+        {
+            IBook book = new DiskBook("Jessi's Grade Book");
             book.GradeAdded += OnGradeAdded;
 
-            var input = "";
-            var grade = 0.0;
-            while(true)
+            EnterGrades(book);
+
+            book.ShowStatistics();
+        }
+
+        private static void EnterGrades(IBook book)
+        {
+            while (true)
             {
-                System.Console.WriteLine("please enter a grade or 'q' to quit");            
-                input = Console.ReadLine();
-                if(input == "q"){
+                System.Console.WriteLine("please enter a grade or 'q' to quit");
+                var input = Console.ReadLine();
+                if (input == "q")
+                {
                     break;
                 }
-                try{
-                    grade = double.Parse(input);
-                    book.AddGrade(grade);   
+                try
+                {
+                    var grade = double.Parse(input);
+                    book.AddGrade(grade);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
 
             }
-            
-            book.ShowStatistics();
         }
 
         static void OnGradeAdded(object sender, EventArgs args){
