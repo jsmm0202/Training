@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace GradeBook
+{
+    using System;
+    using System.Collections.Generic;
 
-namespace GradeBook
-{    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             IBook book = new DiskBook("Jessi's Grade Book");
             book.GradeAdded += OnGradeAdded;
@@ -12,6 +13,11 @@ namespace GradeBook
             EnterGrades(book);
 
             book.ShowStatistics();
+        }
+
+        private static void OnGradeAdded(object sender, EventArgs args)
+        {
+            Console.WriteLine("A grade was added");
         }
 
         private static void EnterGrades(IBook book)
@@ -24,6 +30,7 @@ namespace GradeBook
                 {
                     break;
                 }
+
                 try
                 {
                     var grade = double.Parse(input);
@@ -33,12 +40,7 @@ namespace GradeBook
                 {
                     Console.WriteLine(ex.Message);
                 }
-
             }
-        }
-
-        static void OnGradeAdded(object sender, EventArgs args){
-            Console.WriteLine("A grade was added");
         }
     }
 }

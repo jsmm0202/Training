@@ -1,18 +1,29 @@
-using System;
-
 namespace GradeBook
 {
+    using System;
+
     public class Statistics
     {
+        public Statistics()
+        {
+            Count = 0;
+            Sum = 0.0;
+            High = double.MinValue;
+            Low = double.MaxValue;
+        }
+
         public double Avarage
         {
             get
             {
-                return Sum / count;
+                return Sum / Count;
             }
         }
-        public double High;
-        public double Low;
+
+        public double High { get; set; }
+
+        public double Low { get; set; }
+
         public char Letter
         {
             get
@@ -36,21 +47,15 @@ namespace GradeBook
                 }
             }
         }
-        public double Sum;
-        public int count;
 
-        public Statistics()
-        {
-            count = 0;
-            Sum = 0.0;
-            High = double.MinValue;
-            Low = double.MaxValue;
-        }
+        public double Sum { get; set; }
+
+        public int Count { get; set; }
 
         public void Add(double number)
         {
             Sum += number;
-            count++;
+            Count++;
             High = Math.Max(High, number);
             Low = Math.Min(Low, number);
         }
