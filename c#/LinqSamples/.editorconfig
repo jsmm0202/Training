@@ -159,7 +159,7 @@ csharp_style_prefer_range_operator = true:warning
 # https://docs.microsoft.com/visualstudio/ide/editorconfig-language-conventions#miscellaneous-preferences
 csharp_style_deconstructed_variable_declaration = true:warning
 csharp_style_pattern_local_over_anonymous_function = true:warning
-csharp_using_directive_placement = inside_namespace:warning
+csharp_using_directive_placement = inside_namespace:silent
 csharp_prefer_static_local_function = true:warning
 csharp_prefer_simple_using_statement = true:suggestion
 
@@ -433,3 +433,6 @@ dotnet_diagnostic.SA1309.severity = silent
 
 # SA1602: Enumeration items should be documented
 dotnet_diagnostic.SA1602.severity = silent
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = silent

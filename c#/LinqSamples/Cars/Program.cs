@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
-using System.Linq.Expressions;
 
 namespace Cars
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            //ComputeCarStatistics();
-            //CreateXml();
-            //QueryXml();
+            // Filter, Ordering, Projecting & Joining, Grouping, Projecting modules
+            ComputeCarStatistics();
+
+            // LINQ to XML module
+            CreateXml();
+            QueryXml();
+
+            // LINQ and the Entity Framework module
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CarDb>());
             InsertData();
             QueryData();
@@ -185,8 +187,8 @@ namespace Cars
     {
         public CarStatistics()
         {
-            Max = Int32.MinValue;
-            Min = Int32.MaxValue;
+            Max = int.MinValue;
+            Min = int.MaxValue;
         }
         
         public CarStatistics Accumulate(Car car)
