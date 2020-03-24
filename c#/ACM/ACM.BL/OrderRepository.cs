@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,10 +10,10 @@ namespace ACM.BL
         {
             Order order = new Order(orderId);
 
-            if(orderId == 10)
+            if(orderId == 10)//indent
             {
                 order.OrderDate = new DateTimeOffset(DateTime.Now.Year, 3, 23, 7, 23, 0,
-                    new TimeSpan(2, 0, 0));
+                    new TimeSpan(2, 0, 0)); //indent
             }
 
             return order;
@@ -23,7 +23,7 @@ namespace ACM.BL
         {
             var success = true;
 
-            if (order.HasChanges)
+            if (order.HasChanges) // simplify
             {
                 if (order.IsValid)
                 {
