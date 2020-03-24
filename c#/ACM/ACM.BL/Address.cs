@@ -25,8 +25,7 @@ namespace ACM.BL
         public string Country { get; set; }
         public int AddressType { get; set; }
 
-        private readonly int d;
-        // you could simplify to this code
+        //you could simplify to this code
         //public override bool Validate() => string.IsNullOrWhiteSpace(PostalCode);
         public override bool Validate()
         {
