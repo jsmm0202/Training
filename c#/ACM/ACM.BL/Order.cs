@@ -1,4 +1,4 @@
-﻿using Acme.Common;
+using Acme.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,7 @@ namespace ACM.BL
 {
     public class Order : EntityBase, ILoggable
     {
-        public Order() : this(0)
+        public Order() : this(0) //remove and use default value assmption
         {
         }
 

@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text; // remove unused namespace
 
 namespace ACM.BL
 {
@@ -8,8 +8,10 @@ namespace ACM.BL
     {
         public Address Retrieve(int addressId)
         {
+            // should use var
             Address address = new Address(addressId);
 
+            // use '?' operator....
             if (addressId == 1)
             {
                 address.AddressType = 1;
@@ -19,12 +21,13 @@ namespace ACM.BL
                 address.StateProvince = "Sunflowers";
                 address.Country = "blabla";
                 address.PostalCode = "Sunflowers";
-
+                // empty line
             }
 
             return address;
         }
 
+        // if you choose to use 'IEnumerable' you should use 'yield return' 
         public IEnumerable<Address> RetrieveByCustomerId(int customerId)
         {
             var addressList = new List<Address>();
@@ -57,9 +60,9 @@ namespace ACM.BL
             return addressList;
         }
 
-        public bool save(Address address)
+        public bool save(Address address) // Save
         {
-            var success = true;
+            var success = true; // remove this varibale
 
             if (address.HasChanges)
             {
@@ -76,10 +79,10 @@ namespace ACM.BL
                 }
                 else
                 {
-                    success = false;
+                    success = false; // here return false
                 }
             }
-            return success;
+            return success; //return true
         }
     }
 }

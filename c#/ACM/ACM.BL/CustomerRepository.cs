@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace ACM.BL
             addressRepository = new AddressRepository();
         }
 
-        private AddressRepository addressRepository { get; set; }
+        private AddressRepository addressRepository { get; set; } // remove 'get' 'set'
         public Customer Retrieve(int customerId)
         {
             Customer customer = new Customer(customerId);
@@ -28,7 +28,7 @@ namespace ACM.BL
             return customer;
         }
 
-        public bool save(Customer customer)
+        public bool save(Customer customer) // Save
         {
             var success = true;
 

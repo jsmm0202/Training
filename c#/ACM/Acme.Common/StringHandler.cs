@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Acme.Common
 {
@@ -13,9 +13,9 @@ namespace Acme.Common
         {
             string result = string.Empty;
 
-            if(!String.IsNullOrWhiteSpace(source))
+            if(!String.IsNullOrWhiteSpace(source)) //use string
             {
-                foreach(char letter in source)
+                foreach(char letter in source) //var
                 {
                     if(char.IsUpper(letter))
                     {

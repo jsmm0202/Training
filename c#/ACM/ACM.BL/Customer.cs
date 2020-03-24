@@ -1,19 +1,19 @@
-﻿using Acme.Common;
-using System;
+using Acme.Common;
+using System; // remove
 using System.Collections.Generic;
 
 namespace ACM.BL
 {
     public class Customer : EntityBase, ILoggable
     {
-        public Customer(): this(0)
+        public Customer(): this(0) // remove and use default value
         {
         }
 
-        public Customer(int customerId)
+        public Customer(int customerId) // int customerId = 0
         {
             CustomerId = customerId;
-            AddressList = new List<Address>();
+            AddressList = new List<Address>(); 
         }
 
         public List<Address> AddressList { get; set; }
@@ -26,7 +26,7 @@ namespace ACM.BL
         {
             get
             {
-                string fullName = LastName;
+                string fullName = LastName; // to var
                 if(!string.IsNullOrWhiteSpace(FirstName))
                 {
                     if (!string.IsNullOrWhiteSpace(fullName))
@@ -46,7 +46,7 @@ namespace ACM.BL
 
         public override string ToString() => FullName;
 
-        public override bool Validate()
+        public override bool Validate() // simplify
         {
             var isValid = true;
             if(string.IsNullOrWhiteSpace(LastName))
