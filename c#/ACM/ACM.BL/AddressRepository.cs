@@ -6,8 +6,10 @@
     {
         public Address Retrieve(int addressId)
         {
+            // should use var
             Address address = new Address(addressId);
 
+            // use '?' operator....
             if (addressId == 1)
             {
                 address.AddressType = 1;
@@ -22,6 +24,7 @@
             return address;
         }
 
+        // if you choose to use 'IEnumerable' you should use 'yield return' 
         public IEnumerable<Address> RetrieveByCustomerId(int customerId)
         {
             var addressList = new List<Address>();
@@ -54,7 +57,7 @@
 
         public bool Save(Address address)
         {
-            var success = true;
+            var success = true; // remove this varibale
 
             if (address.HasChanges)
             {
@@ -71,11 +74,10 @@
                 }
                 else
                 {
-                    success = false;
+                    success = false; // here return false
                 }
             }
-
-            return success;
+            return success; //return true
         }
     }
 }

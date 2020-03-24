@@ -2,6 +2,6 @@
 {
     public interface ILoggable
     {
-        string Log();
+        string Log(); // why you return string ??
     }
 }

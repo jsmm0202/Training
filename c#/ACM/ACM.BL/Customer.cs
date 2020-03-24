@@ -10,10 +10,10 @@
         {
         }
 
-        public Customer(int customerId)
+        public Customer(int customerId) // int customerId = 0
         {
             CustomerId = customerId;
-            AddressList = new List<Address>();
+            AddressList = new List<Address>(); 
         }
 
         public static int InstanceCount { get; set; }
@@ -35,7 +35,7 @@
             get
             {
                 string fullName = LastName;
-                if (!string.IsNullOrWhiteSpace(FirstName))
+                if(!string.IsNullOrWhiteSpace(FirstName))
                 {
                     if (!string.IsNullOrWhiteSpace(fullName))
                     {
@@ -54,7 +54,7 @@
 
         public override string ToString() => FullName;
 
-        public override bool Validate()
+        public override bool Validate() // simplify
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(LastName))

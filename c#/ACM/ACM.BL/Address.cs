@@ -11,6 +11,7 @@
             AddressId = addressId;
         }
 
+
         public int AddressId { get; private set; }
 
         public string StreetLine1 { get; set; }
@@ -27,9 +28,11 @@
 
         public int AddressType { get; set; }
 
+        //you could simplify to this code
+        //public override bool Validate() => string.IsNullOrWhiteSpace(PostalCode);
         public override bool Validate()
         {
-            var isValid = true;
+            var isValid = true; 
             if (string.IsNullOrWhiteSpace(PostalCode))
             {
                 isValid = false;

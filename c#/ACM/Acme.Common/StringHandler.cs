@@ -15,7 +15,7 @@
 
             if (!string.IsNullOrWhiteSpace(source))
             {
-                foreach (char letter in source)
+                foreach(char letter in source) //var
                 {
                     if (char.IsUpper(letter))
                     {
