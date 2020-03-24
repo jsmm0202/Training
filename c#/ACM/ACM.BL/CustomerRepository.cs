@@ -1,34 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ACM.BL
+﻿namespace ACM.BL
 {
+    using System.Linq;
+
     public class CustomerRepository
     {
+        private readonly AddressRepository _addressRepository;
+
         public CustomerRepository()
         {
-            addressRepository = new AddressRepository();
+            _addressRepository = new AddressRepository();
         }
 
-        private AddressRepository addressRepository { get; set; }
         public Customer Retrieve(int customerId)
         {
             Customer customer = new Customer(customerId);
 
-            if(customerId == 1)
+            if (customerId == 1)
             {
                 customer.EmailAddress = "fbaggins@hobbiton.me";
                 customer.FirstName = "Frodo";
                 customer.LastName = "Bggins";
-                customer.AddressList = addressRepository.RetrieveByCustomerId(customerId).ToList();
+                customer.AddressList = _addressRepository.RetrieveByCustomerId(customerId).ToList();
             }
 
             return customer;
         }
 
-        public bool save(Customer customer)
+        public bool Save(Customer customer)
         {
             var success = true;
 
@@ -38,11 +36,11 @@ namespace ACM.BL
                 {
                     if (customer.IsNew)
                     {
-                        //Call an insert procedure
+                        // Call an insert procedure
                     }
                     else
                     {
-                        //Call an update procedure
+                        // Call an update procedure
                     }
                 }
                 else
@@ -50,6 +48,7 @@ namespace ACM.BL
                     success = false;
                 }
             }
+
             return success;
         }
     }

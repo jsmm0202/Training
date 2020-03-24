@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ACM.BL
+﻿namespace ACM.BL
 {
+    using System.Collections.Generic;
+
     public class AddressRepository
     {
         public Address Retrieve(int addressId)
@@ -19,7 +17,6 @@ namespace ACM.BL
                 address.StateProvince = "Sunflowers";
                 address.Country = "blabla";
                 address.PostalCode = "Sunflowers";
-
             }
 
             return address;
@@ -36,8 +33,7 @@ namespace ACM.BL
                 City = "blabla",
                 StateProvince = "Sunflowers",
                 Country = "blabla",
-                PostalCode = "Sunflowers"
-
+                PostalCode = "Sunflowers",
             };
             addressList.Add(address);
 
@@ -49,15 +45,14 @@ namespace ACM.BL
                 City = "blabla2",
                 StateProvince = "Sunflowers2",
                 Country = "blabla2",
-                PostalCode = "Sunflowers2"
-
+                PostalCode = "Sunflowers2",
             };
             addressList.Add(address);
 
             return addressList;
         }
 
-        public bool save(Address address)
+        public bool Save(Address address)
         {
             var success = true;
 
@@ -67,11 +62,11 @@ namespace ACM.BL
                 {
                     if (address.IsNew)
                     {
-                        //Call an insert procedure
+                        // Call an insert procedure
                     }
                     else
                     {
-                        //Call an update procedure
+                        // Call an update procedure
                     }
                 }
                 else
@@ -79,6 +74,7 @@ namespace ACM.BL
                     success = false;
                 }
             }
+
             return success;
         }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ACM.BL
+﻿namespace ACM.BL
 {
     public class OrderItem
     {
@@ -16,8 +12,11 @@ namespace ACM.BL
         }
 
         public int OrderItemId { get; private set; }
+
         public int ProductId { get; set; }
+
         public int Quantity { get; set; }
+
         public decimal? Price { get; set; }
 
         public bool Validate()
@@ -28,10 +27,12 @@ namespace ACM.BL
             {
                 isValid = false;
             }
+
             if (Quantity <= 0)
             {
                 isValid = false;
             }
+
             if (ProductId <= 0)
             {
                 isValid = false;
@@ -45,7 +46,7 @@ namespace ACM.BL
             return new OrderItem();
         }
 
-        public bool save()
+        public bool Save()
         {
             return true;
         }

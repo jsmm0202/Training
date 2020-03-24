@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Acme.Common
+﻿namespace Acme.Common
 {
+    using System;
+    using System.Collections.Generic;
+
     public class LoggingService
     {
         public static void WriteToFile(List<ILoggable> itemsToLog)

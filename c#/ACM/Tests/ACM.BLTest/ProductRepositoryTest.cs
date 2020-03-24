@@ -38,7 +38,7 @@ namespace ACM.BLTest
                 HasChanges = true
             };
 
-            var actual = productRepository.save(updatedProduct);
+            var actual = productRepository.Save(updatedProduct);
 
             Assert.AreEqual(true, actual);
         }
@@ -55,7 +55,7 @@ namespace ACM.BLTest
                 HasChanges = true
             };
 
-            var actual = productRepository.save(updatedProduct);
+            var actual = productRepository.Save(updatedProduct);
 
             Assert.AreEqual(false, actual);
         }

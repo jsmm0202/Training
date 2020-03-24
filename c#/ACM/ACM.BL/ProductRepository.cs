@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ACM.BL
+﻿namespace ACM.BL
 {
     public class ProductRepository
     {
@@ -10,7 +6,7 @@ namespace ACM.BL
         {
             Product product = new Product(productId);
 
-            if(productId == 2)
+            if (productId == 2)
             {
                 product.ProductName = "Sunflowers";
                 product.ProductDescription = "blabla";
@@ -20,28 +16,29 @@ namespace ACM.BL
             return product;
         }
 
-        public bool save(Product product)
+        public bool Save(Product product)
         {
             var success = true;
 
-            if(product.HasChanges)
+            if (product.HasChanges)
             {
-                if(product.IsValid)
+                if (product.IsValid)
                 {
-                    if(product.IsNew)
+                    if (product.IsNew)
                     {
-                        //Call an insert procedure
+                        // Call an insert procedure
                     }
                     else
                     {
-                        //Call an update procedure
+                        // Call an update procedure
                     }
                 }
-                else 
+                else
                 {
                     success = false;
                 }
             }
+
             return success;
         }
     }

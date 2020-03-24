@@ -1,13 +1,13 @@
-﻿using Acme.Common;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ACM.BL
+﻿namespace ACM.BL
 {
+    using System;
+    using System.Collections.Generic;
+    using Acme.Common;
+
     public class Order : EntityBase, ILoggable
     {
-        public Order() : this(0)
+        public Order()
+            : this(0)
         {
         }
 
@@ -18,9 +18,13 @@ namespace ACM.BL
         }
 
         public int CustomerId { get; set; }
+
         public int ShippingAddressId { get; set; }
+
         public List<OrderItem> OrderItems { get; set; }
+
         public int OrderId { get; private set; }
+
         public DateTimeOffset? OrderDate { get; set; }
 
         public string Log() =>
@@ -32,7 +36,7 @@ namespace ACM.BL
         {
             var isValid = true;
 
-            if(OrderDate == null)
+            if (OrderDate == null)
             {
                 isValid = false;
             }
