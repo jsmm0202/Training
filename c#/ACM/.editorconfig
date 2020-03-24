@@ -415,3 +415,21 @@ dotnet_naming_rule.parameters_rule.severity             = warning
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 ##########################################
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = none
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = silent
+
+# SA1633: File should have header
+dotnet_diagnostic.SA1633.severity = silent
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = suggestion
+
+# SA1309: Field names should not begin with underscore
+dotnet_diagnostic.SA1309.severity = silent
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = silent

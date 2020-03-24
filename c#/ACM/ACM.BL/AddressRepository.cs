@@ -1,4 +1,4 @@
-﻿namespace ACM.BL
+namespace ACM.BL
 {
     using System.Collections.Generic;
 
@@ -6,8 +6,7 @@
     {
         public Address Retrieve(int addressId)
         {
-            // should use var
-            Address address = new Address(addressId);
+            var address = new Address(addressId);
 
             // use '?' operator....
             if (addressId == 1)
@@ -24,7 +23,6 @@
             return address;
         }
 
-        // if you choose to use 'IEnumerable' you should use 'yield return' 
         public IEnumerable<Address> RetrieveByCustomerId(int customerId)
         {
             var addressList = new List<Address>();
@@ -57,8 +55,6 @@
 
         public bool Save(Address address)
         {
-            var success = true; // remove this varibale
-
             if (address.HasChanges)
             {
                 if (address.IsValid)
@@ -74,10 +70,10 @@
                 }
                 else
                 {
-                    success = false; // here return false
+                    return false;
                 }
             }
-            return success; //return true
+            return true;
         }
     }
 }

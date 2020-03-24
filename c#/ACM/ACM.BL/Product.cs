@@ -1,4 +1,4 @@
-﻿namespace ACM.BL
+namespace ACM.BL
 {
     using Acme.Common;
 
@@ -19,15 +19,9 @@
 
         public string ProductName
         {
-            get
-            {
-                return _productName.InsertSpaces();
-            }
+            get => _productName.InsertSpaces();
 
-            set
-            {
-                _productName = value;
-            }
+            set => _productName = value;
         }
 
         public string ProductDescription { get; set; }

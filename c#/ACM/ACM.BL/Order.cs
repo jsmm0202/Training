@@ -1,4 +1,4 @@
-﻿namespace ACM.BL
+namespace ACM.BL
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +28,7 @@
         public DateTimeOffset? OrderDate { get; set; }
 
         public string Log() =>
-            $"{OrderId}: Date: {OrderDate.Value.Date} Status: {EntityState.ToString()}";
+            $"{OrderId}: Date: {OrderDate.Value.Date} Status: {EntityState}";
 
         public override string ToString() => $"{OrderDate.Value.Date} ({OrderId})";
 

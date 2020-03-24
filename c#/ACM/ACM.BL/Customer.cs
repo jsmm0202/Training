@@ -1,4 +1,4 @@
-﻿namespace ACM.BL
+namespace ACM.BL
 {
     using System.Collections.Generic;
     using Acme.Common;
@@ -6,14 +6,13 @@
     public class Customer : EntityBase, ILoggable
     {
         public Customer()
-            : this(0)
         {
         }
 
-        public Customer(int customerId) // int customerId = 0
+        public Customer(int customerId = 0)
         {
             CustomerId = customerId;
-            AddressList = new List<Address>(); 
+            AddressList = new List<Address>();
         }
 
         public static int InstanceCount { get; set; }
@@ -35,7 +34,7 @@
             get
             {
                 string fullName = LastName;
-                if(!string.IsNullOrWhiteSpace(FirstName))
+                if (!string.IsNullOrWhiteSpace(FirstName))
                 {
                     if (!string.IsNullOrWhiteSpace(fullName))
                     {
@@ -50,24 +49,11 @@
         }
 
         public string Log() =>
-            $"{CustomerId}: {FullName} Email: {EmailAddress} Status: {EntityState.ToString()}";
+            $"{CustomerId}: {FullName} Email: {EmailAddress} Status: {EntityState}";
 
         public override string ToString() => FullName;
 
-        public override bool Validate() // simplify
-        {
-            var isValid = true;
-            if (string.IsNullOrWhiteSpace(LastName))
-            {
-                isValid = false;
-            }
-
-            if (string.IsNullOrWhiteSpace(EmailAddress))
-            {
-                isValid = false;
-            }
-
-            return isValid;
-        }
+        public override bool Validate() =>
+            !string.IsNullOrWhiteSpace(LastName) && !string.IsNullOrWhiteSpace(EmailAddress);
     }
 }

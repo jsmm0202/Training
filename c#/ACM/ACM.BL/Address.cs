@@ -1,4 +1,4 @@
-﻿namespace ACM.BL
+namespace ACM.BL
 {
     public class Address : EntityBase
     {
@@ -10,7 +10,6 @@
         {
             AddressId = addressId;
         }
-
 
         public int AddressId { get; private set; }
 
@@ -28,17 +27,6 @@
 
         public int AddressType { get; set; }
 
-        //you could simplify to this code
-        //public override bool Validate() => string.IsNullOrWhiteSpace(PostalCode);
-        public override bool Validate()
-        {
-            var isValid = true; 
-            if (string.IsNullOrWhiteSpace(PostalCode))
-            {
-                isValid = false;
-            }
-
-            return isValid;
-        }
+        public override bool Validate() => string.IsNullOrWhiteSpace(PostalCode);
     }
 }

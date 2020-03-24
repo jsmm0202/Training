@@ -1,4 +1,4 @@
-﻿namespace ACM.BL
+namespace ACM.BL
 {
     public class OrderItem
     {
@@ -41,14 +41,8 @@
             return isValid;
         }
 
-        public OrderItem Retrieve(int productId)
-        {
-            return new OrderItem();
-        }
+        public OrderItem Retrieve(int productId) => new OrderItem();
 
-        public bool Save()
-        {
-            return true;
-        }
+        public bool Save() => true;
     }
 }
