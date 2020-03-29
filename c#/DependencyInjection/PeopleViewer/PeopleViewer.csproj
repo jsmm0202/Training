@@ -102,11 +102,11 @@
       <Name>PeopleViewer.Views</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.CSV\PersonDataReader.CSV.csproj">
-      <Project>{fbad03bb-8d26-4e00-9545-40bcf6db31d3}</Project>
+      <Project>{8B2FA401-1C35-4C29-AF50-1FEF84C7FFD6}</Project>
       <Name>PersonDataReader.CSV</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.Decorators\PersonDataReader.Decorators.csproj">
-      <Project>{f7271916-c619-464b-9dc2-eed5bcdea83e}</Project>
+      <Project>{12EF3E94-AD4B-49FC-A17F-1B66B281066E}</Project>
       <Name>PersonDataReader.Decorators</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.Service\PersonDataReader.Service.csproj">
@@ -114,7 +114,7 @@
       <Name>PersonDataReader.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonDataReader.SQL\PersonDataReader.SQL.csproj">
-      <Project>{77b0bd75-6ae6-41f8-965e-fc3c4e0b1f66}</Project>
+      <Project>{49562DFF-35D5-4CFD-8D32-F73378BD3AEF}</Project>
       <Name>PersonDataReader.SQL</Name>
     </ProjectReference>
   </ItemGroup>
