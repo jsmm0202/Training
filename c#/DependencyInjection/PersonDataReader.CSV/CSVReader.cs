@@ -11,8 +11,7 @@ namespace PersonDataReader.CSV
 
         public CSVReader()
         {
-            string filePath =
-                AppDomain.CurrentDomain.BaseDirectory + "People.txt";
+            string filePath = AppDomain.CurrentDomain.BaseDirectory + "People.txt";
             FileLoader = new CSVFileLoader(filePath);
         }
 
