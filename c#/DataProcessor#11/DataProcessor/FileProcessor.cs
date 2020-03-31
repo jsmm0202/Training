@@ -35,11 +35,7 @@ namespace DataProcessor
             string inputFileDirectoryPath = Path.GetDirectoryName(InputFilePath);
             string backupDirectoryPath = Path.Combine(rootDirectoryPath, BackupDirectoryName);
 
-            //if(!Directory.Exists(backupDirectoryPath))
-            //{
-            //    WriteLine($"Creating {backupDirectoryPath}");
-                Directory.CreateDirectory(backupDirectoryPath);
-            //}
+            Directory.CreateDirectory(backupDirectoryPath);
 
             // Copy file to backup dir
             string inputFileName = Path.GetFileName(InputFilePath);
@@ -64,39 +60,35 @@ namespace DataProcessor
 
             // Determine type of file
             string extension = Path.GetExtension(InputFilePath);
+
+            string completedDirectoryPath = Path.Combine(rootDirectoryPath, CompletedDirectoryName);
+            Directory.CreateDirectory(completedDirectoryPath);
+
+            var completedFileName =
+                $"{Path.GetFileNameWithoutExtension(InputFilePath)}-{Guid.NewGuid()}{extension}";
+
+            var completedFilePath = Path.Combine(completedDirectoryPath, completedFileName);
+
             switch (extension)
             {
                 case ".txt":
-                    ProcessTextFile(inProgressFilePath);
+                    var textProcessor = new TextFileProcessor(inProgressFilePath, completedFilePath);
+                    textProcessor.Process();
+                    break;
+                case ".data":
+                    var binaryProcessor = new BinaryFileProcessor(inProgressFilePath, completedFilePath);
+                    binaryProcessor.Process();
                     break;
                 default:
                     WriteLine($"{extension} is an unsupported file type.");
                     break;
             }
 
-            string completedDirectoryPath = Path.Combine(rootDirectoryPath, CompletedDirectoryName);
-            Directory.CreateDirectory(completedDirectoryPath);
+            WriteLine($"Completed processing of {inProgressFilePath}");
 
-            WriteLine($"Moving {inProgressFilePath} to {completedDirectoryPath}");
-            //File.Move(inProgressFilePath, Path.Combine(completedDirectoryPath, inputFileName));
-
-            var completedFileName = 
-                $"{Path.GetFileNameWithoutExtension(InputFilePath)}-{Guid.NewGuid()}{extension}";
-
-            //completedFileName = Path.ChangeExtension(completedFileName, ".complete");
-
-            var completedFilePath = Path.Combine(completedDirectoryPath, completedFileName);
-
-            File.Move(inProgressFilePath, completedFilePath);
-
-            //string inProgressDirectoryPath = Path.GetDirectoryName(inProgressFilePath);
-            //Directory.Delete(inProgressDirectoryPath, true);
+            WriteLine($"Deleting {inProgressFilePath}");
+            File.Delete(inProgressFilePath);
         }
 
-        private void ProcessTextFile(string inProgressFilePath)
-        {
-            WriteLine($"Processing text file {inProgressFilePath}");
-            // Read in and process
-        }
     }
 }
