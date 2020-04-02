@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        var authors = [{
+            firstName: 'Xavier',
+            lastName: 'Morera',
+            courseCount: 4
+        }, {
+            firstName: 'Peter',
+            lastName: 'Shaw',
+            courseCount: 1
+        }, {
+            firstName: 'Jason',
+            lastName: 'Alba',
+            courseCount: 16
+        }];
+
+        function loadAuthor() {
+                var theAuthor = document.getElementById("oneAuthor");
+                var theAuthors = document.getElementById("allAuthors");
+                var countAuthors = document.getElementById("totalAuthors");
+
+                theAuthor.innerHTML = authors[0].firstName + " " + authors[0].lastName + " " + authors[0].courseCount;
+                theAuthors.innerHTML = authors[0].firstName + ", " + authors[1].firstName + ", " + authors[2].firstName;
+                countAuthors.innerHTML = "Total authors: " + authors.length;
+        }
+
+        window.onload = loadAuthor;
+    </script>
+</head>
+<body>
+    <div id="oneAuthor">One author</div>
+    <div id="allAuthors">All authors</div>
+    <div id="totalAuthors">Count</div>
+    <br />
+   <!-- Can be found in: https://jsfiddle.net/91u9jr9m/3/ -->
+</body>
+</html>

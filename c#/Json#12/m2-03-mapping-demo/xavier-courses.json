@@ -1,0 +1,100 @@
+{
+	"searchTerm": "xavier",
+	"totalHits": 4,
+	"courses": [{
+		"title": "Getting Started with Enterprise Search Using Apache Solr",
+		"level": "Intermediate",
+		"duration": "03:32:08",
+		"releaseDate": "2014-06-23T07:28:04.113-06:00",
+		"name": "enterprise-search-using-apache-solr",
+		"authors": [{
+			"handle": "xavier-morera",
+			"firstName": "Xavier",
+			"lastName": "Morera"
+		}],
+		"hasTranscript": true,
+		"courseRating": {
+			"currentUsersRating": 0,
+			"averageRating": 4.2,
+			"rating": 4.2,
+			"canRateThisCourse": false,
+			"courseName": "enterprise-search-using-apache-solr",
+			"numberOfRaters": 135,
+			"hasUserRatedCourse": false
+		},
+		"isRetired": false,
+		"recentViewTime": 286390
+	},
+	{
+		"title": "Kanban Development With Jira Agile",
+		"level": "Intermediate",
+		"duration": "02:09:19",
+		"releaseDate": "2014-12-05T00:00:00-07:00",
+		"name": "kanban-development-jira-agile",
+		"authors": [{
+			"handle": "xavier-morera",
+			"firstName": "Xavier",
+			"lastName": "Morera"
+		}],
+		"hasTranscript": true,
+		"courseRating": {
+			"currentUsersRating": 0,
+			"averageRating": 4.4,
+			"rating": 4.4,
+			"canRateThisCourse": false,
+			"courseName": "kanban-development-jira-agile",
+			"numberOfRaters": 39,
+			"hasUserRatedCourse": false
+		},
+		"isRetired": false,
+		"recentViewTime": 173661
+	},
+	{
+		"title": ".NET Performance Optimization & Profiling with JetBrains dotTrace",
+		"level": "Intermediate",
+		"duration": "03:10:16",
+		"releaseDate": "2015-04-11T00:00:00-06:00",
+		"name": "dotnet-performance-optimization-profiling-jetbrains-dottrace",
+		"authors": [{
+			"handle": "xavier-morera",
+			"firstName": "Xavier",
+			"lastName": "Morera"
+		}],
+		"hasTranscript": false,
+		"courseRating": {
+			"currentUsersRating": 0,
+			"averageRating": 4.3,
+			"rating": 4.3,
+			"canRateThisCourse": false,
+			"courseName": "dotnet-performance-optimization-profiling-jetbrains-dottrace",
+			"numberOfRaters": 21,
+			"hasUserRatedCourse": false
+		},
+		"isRetired": false,
+		"recentViewTime": 343769
+	}, 
+	{
+		"title": "Scrum Development with Jira & JIRA Agile",
+		"level": "Intermediate",
+		"duration": "01:37:14",
+		"releaseDate": "2014-01-14T07:57:45.64-07:00",
+		"name": "scrum-development-jira-agile",
+		"authors": [{
+			"handle": "xavier-morera",
+			"firstName": "Xavier",
+			"lastName": "Morera"
+		}],
+		"hasTranscript": true,
+		"courseRating": {
+			"currentUsersRating": 0,
+			"averageRating": 4.0,
+			"rating": 4.0,
+			"canRateThisCourse": false,
+			"courseName": "scrum-development-jira-agile",
+			"numberOfRaters": 282,
+			"hasUserRatedCourse": false
+		},
+		"isRetired": false,
+		"recentViewTime": 293402
+	}]
+}

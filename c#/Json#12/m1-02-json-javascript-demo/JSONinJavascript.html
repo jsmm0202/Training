@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+
+        function loadJSON() {
+            var theAuthor = document.getElementById("oneAuthor");
+            var theAuthors = document.getElementById("allAuthors");
+            var countAuthors = document.getElementById("totalAuthors");
+
+            var authors = [{
+                firstName: 'Xavier',
+                lastName: 'Morera',
+                courseCount: 4
+            }, {
+                firstName: 'Peter',
+                lastName: 'Shaw',
+                courseCount: 1
+            }, {
+                firstName: 'Jason',
+                lastName: 'Alba',
+                courseCount: 16
+            }];
+
+            //You need to uncheck 'Disable script debugging (Internet Explorer)' in Internet Options > Advanced
+            debugger;
+
+            theAuthor.innerHTML = authors[0].firstName + " " + authors[0].lastName + " " + authors[0].courseCount;
+            theAuthors.innerHTML = authors[0].firstName + ", " + authors[1].firstName + ", " + authors[2].firstName;
+            countAuthors.innerHTML = "Total authors: " + authors.length;
+        };
+    </script>
+</head>
+<body>
+    <div id="oneAuthor">One author</div>
+    <div id="allAuthors">All authors</div>
+    <div id="totalAuthors">Count</div>
+    <div><input type="button" value="Load Author Info" onclick="loadJSON()" /></div>
+</body>
+</html>

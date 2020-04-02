@@ -1,0 +1,18 @@
+{
+	"authors": [{
+		"firstName": "Xavier",
+		"lastName": "Morera",
+		"courseCount": 4
+	},
+	{
+		"firstName": "Peter",
+		"lastName": "Shaw",
+		"courseCount": 1
+	},
+	{
+		"firstName": "Jason",
+		"lastName": "Alba",
+		"courseCount": 16
+	}]
+}
+

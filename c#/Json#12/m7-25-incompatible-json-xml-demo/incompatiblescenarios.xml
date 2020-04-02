@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+ <mainnode>
+	<mixedcontent>this is valid <emphasis>mixed</emphasis> content</mixedcontent>
+	<unorderedlistwithchange>
+		<c>b</c>
+		<b>c</b>
+		<a>a</a>
+	</unorderedlistwithchange>
+	<unorderedarray>
+		<onenode>b</onenode>
+		<onenode>c</onenode>
+		<onenode>a</onenode>
+	</unorderedarray>
+</mainnode>

@@ -1,0 +1,17 @@
+<authors>
+	<author>
+		<firstName>Xavier</firstName> 
+		<lastName>Morera</lastName>
+		<courseCount>4</courseCount>
+	</author>
+	<author>
+		<firstName>Peter</firstName> 
+		<lastName>Shaw</lastName>
+		<courseCount>1</courseCount>
+	</author>
+	<author>
+		<firstName>Jason</firstName> 
+		<lastName>Alba</lastName>
+		<courseCount>16</courseCount>
+	</author>
+</authors>

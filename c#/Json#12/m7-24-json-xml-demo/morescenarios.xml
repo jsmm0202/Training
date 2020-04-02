@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+ <mainnode>
+  <emptyvalue/>
+	<text>
+		Some text
+	</text>
+	<nodewithattributes myattribute='thisattribute' anotherattribute='otherattribute'>
+		Some text with attributes and text
+	</nodewithattributes>
+	<differentsubnodes>
+		<onedifferent></onedifferent>
+		<twodifferent></twodifferent>
+		<threedifferent></threedifferent>
+	</differentsubnodes>
+	<repeatedsubnodes>
+		<onerepeated></onerepeated>
+		<twodifferent></twodifferent>
+		<onerepeated></onerepeated>
+	</repeatedsubnodes>	
+	<arrays>
+		<arrayofone>
+			value
+		</arrayofone>
+	</arrays>
+	<otherarrays>
+		<valueone/>
+		<valueone>some value</valueone>
+	</otherarrays>
+</mainnode>
