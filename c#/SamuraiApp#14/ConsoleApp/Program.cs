@@ -11,7 +11,7 @@ namespace ConsoleApp
 
     private static void Main(string[] args)
     {
-      context.Database.EnsureCreated();
+      //context.Database.EnsureCreated();
       GetSamurais("Before Add:");
       AddSamurai();
       GetSamurais("After Add:");
@@ -21,7 +21,7 @@ namespace ConsoleApp
 
     private static void AddSamurai()
     {
-      var samurai = new Samurai { Name = "Julie" };
+      var samurai = new Samurai { Name = "Sampson" };
       context.Samurais.Add(samurai);
       context.SaveChanges();
     }
